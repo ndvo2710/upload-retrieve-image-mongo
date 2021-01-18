@@ -1,8 +1,11 @@
 const fs = require('fs');
 
+
+
 module.exports = (req, res, next) => {
     // first we will save category name and image
     // validate req.body or req.file to make sure they don't get undefined
+    console.log('------------Midleware Validation------------');
     if (
         typeof (req.file) === 'undefined' ||
         typeof (req.body) === 'undefined'
@@ -14,7 +17,7 @@ module.exports = (req, res, next) => {
     }
 
     // get image and name
-    console.log(req.file);
+    console.log('pre validation file: ', req.file);
     let name = req.body.name;
     let image = req.file.path;
 
@@ -48,7 +51,6 @@ module.exports = (req, res, next) => {
         })
     }
 
-    // let's try upload unsupported file (Use POSTMAN to test)
-    // after testing, let's create category model
+    // let's save in database
     next()
 }
