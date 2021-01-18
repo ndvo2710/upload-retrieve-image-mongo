@@ -18,6 +18,7 @@ module.exports = (req, res, next) => {
 
     // get image and name
     console.log('pre validation file: ', req.file);
+    console.log('req.body: ', req.body);
     let name = req.body.name;
     let image = req.file.path;
 
